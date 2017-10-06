@@ -8,11 +8,15 @@ public class CuttingRod {
         int dp[] = new int[len+1];
         for(int i = 0; i < dp.length;i++)
             dp[i] = 0;
-        dp[0] = 0;//price[0];
+        dp[0] = 0;
         for(int i = 0; i < len; i++){
             int arr[] = new int[i+1];
             for(int j = 0; j <= i;j++){
-                arr[j] = price[j] + dp[i-j];
+                int temp = i-j-1;
+                if(temp >= 0)
+                    arr[j] = price[j] + dp[temp];
+                else
+                    arr[j] = price[j];
             }
             dp[i] = findMax(arr);
         }
