@@ -12,17 +12,21 @@ LP(i,j) = 1 if j = i
 
 public class MaxPalindromeSubArray {
     public static void main(String[] args) {
-        String str = "ghnnitinywr";
+        String str = "gghgghh";
         int len = str.length();
         int arr[][] = new int[len][len];
         for(int i = 0;i<str.length();i++){
             for(int j=i; j>=0; j--){
-                if(j == i) arr[i][j] = 1;
-                else if(j == i+1 && str.charAt(j) != str.charAt(i+1)) arr[i][j] = 1;
-                else if(j == i+1 && str.charAt(j) == str.charAt(i+1)) arr[i][j] = 2;
-                else if(str.charAt(j) == str.charAt(i) && j>0 && i < len-1) arr[i][j] = arr[i+1][j-1] + 2;
-                else if(j > 0 && i < len-1)
-                    arr[i][j] = Math.max(arr[i+1][j],arr[i][j-1]);
+                if(i == j)
+                    arr[j][i] = 1;
+                else if(i == j+1 && str.charAt(i) != str.charAt(j))
+                    arr[j][i] = 1;
+                else if(i == j+1 && str.charAt(i) == str.charAt(j))
+                    arr[j][i] = 2;
+                else if(str.charAt(j) == str.charAt(i) && i>0 && j < len-1)
+                    arr[j][i] = arr[j+1][i-1] + 2;
+                else
+                    arr[j][i] = Math.max(arr[j+1][i],arr[j][i-1]);
             }
         }
         for(int i = 0;i<str.length();i++)

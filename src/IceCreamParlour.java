@@ -15,7 +15,7 @@ public class IceCreamParlour {
             int n = in.nextInt();
             for(int a_i=0; a_i < n; a_i++){
                 int num = in.nextInt();
-                map.computeIfPresent(num, (k, v) -> map.put(-1 * k,a_i+1));
+                //map.computeIfPresent(num, (k, v) -> map.put(-1 * k,a_i+1));
                 map.putIfAbsent(num,a_i+1);
             }
             for (Map.Entry<Integer, Integer> entry : map.entrySet())
