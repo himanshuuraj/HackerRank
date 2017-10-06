@@ -15,6 +15,7 @@ public class IceCreamParlour {
             int n = in.nextInt();
             for(int a_i=0; a_i < n; a_i++){
                 int num = in.nextInt();
+                // https://stackoverflow.com/questions/4157972/how-to-update-a-value-given-a-key-in-a-java-hashmap
                 //map.computeIfPresent(num, (k, v) -> map.put(-1 * k,a_i+1));
                 map.putIfAbsent(num,a_i+1);
             }
