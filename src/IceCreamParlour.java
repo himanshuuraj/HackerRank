@@ -15,23 +15,32 @@ public class IceCreamParlour {
             int n = in.nextInt();
             for(int a_i=0; a_i < n; a_i++){
                 int num = in.nextInt();
-                // https://stackoverflow.com/questions/4157972/how-to-update-a-value-given-a-key-in-a-java-hashmap
-                //map.computeIfPresent(num, (k, v) -> map.put(-1 * k,a_i+1));
+                if(map.containsKey(num)){
+                    map.put(-1 * num,a_i+1);
+                }
                 map.putIfAbsent(num,a_i+1);
             }
             for (Map.Entry<Integer, Integer> entry : map.entrySet())
             {
                 int key = entry.getKey();
+                if( key < 0) continue;
                 int secKey = m - key;
-                //int value = entry.getValue();
                 if(key == secKey) secKey = -1 * key;
                 if(map.containsKey(key) && map.containsKey(secKey))
                 {
-                    System.out.println(map.get(key) + " " + map.get(secKey));
+                    int x = map.get(key);
+                    int y = map.get(secKey);
+                    if(x > y && y > 0) {
+                        int temp = x;
+                        x = y;
+                        y = temp;
+                    }
+                    System.out.println(x + " " + y);
                     break;
                 }
             }
             map.clear();
         }
     }
+
 }
