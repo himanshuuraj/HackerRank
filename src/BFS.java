@@ -45,7 +45,7 @@ class BFS
                 weight++;
                 for (Integer i : al) {
                     output[startId - 1] = weight * 6;
-                    if(!)
+                    //if(!)
                     stack.add(i);
                 }
             }
