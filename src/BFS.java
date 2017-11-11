@@ -4,18 +4,7 @@ import java.util.*;
 class BFS
 {
     static int weight = 0;
-    //static List<Node> stack = new ArrayList();
     static int[] output;
-    /*public static class Node{
-        int data;
-        int weight;
-        boolean visited;
-        public Node(int data,int weight, boolean visited){
-            this.data = data;
-            this.weight = weight;
-            this.visited = visited;
-        }
-    }*/
 
     public static class Graph {
         int size;  // This is basically the number of nodes
